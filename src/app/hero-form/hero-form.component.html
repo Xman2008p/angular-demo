@@ -1,0 +1,92 @@
+<p>
+  hero-form works!
+</p>
+<!-- <div class="container">
+  <h1>Hero Form</h1>
+  <form>
+    <div class="form-group">
+      <label for="name">姓名</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="alterEgo">裏人格</label>
+      <input type="text" class="form-control" id="alterEgo">
+    </div>
+    <button type="submit" class="btn btn-success">提交</button>
+
+    <div class="form-group">
+      <label for="power">能力</label>
+      <select name="power" id="power" class="form-control">
+        <option [value]="item" *ngFor="let item of powers">{{item}}</option>
+      </select>
+    </div>
+
+
+  </form>
+</div> -->
+
+<div class="container">
+  <h1>Hero Form</h1>
+  <form #heroForm="ngForm">
+
+    <!-- <div class="form-group">
+      <label for="name">姓名</label>
+      <input id="name" [(ngModel)]="model.name"
+        class="form-control" name="name" required>
+      目前的資料狀態[姓名]：{{model.name}}
+    </div> -->
+
+    <div class="form-group">
+      <label for="name">姓名</label>
+      <input id="name" [(ngModel)]="model.name"
+        class="form-control" name="name" #name="ngModel" required>
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">姓名是必填欄位！</div>
+      目前的資料狀態[姓名]：{{model.name}}
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">裏人格</label>
+      <input type="text" class="form-control"
+        [(ngModel)]="model.alterEgo" name="alterEgo" id="alterEgo">
+        目前的資料狀態[裏人格]：{{model.alterEgo}}
+    </div>
+    <div class="form-group">
+      <label for="power">能力</label>
+      <select name="power" id="power" class="form-control" [(ngModel)]="model.power">
+        <option [value]="item" *ngFor="let item of powers">{{item}}</option>
+      </select>
+      目前的資料狀態[能力]：{{model.power}}
+    </div>
+    <button type="submit" class="btn btn-success">提交</button>
+    <button type="button" class="btn btn-primary" (click)="newHero()">新增英雄</button>
+  </form>
+</div>
+
+
+<div class="container">
+  <h1>Hero Form</h1>
+  <form #heroForm="ngForm">
+    <div class="form-group">
+      <label for="name">姓名</label>
+      <input id="name" [(ngModel)]="model.name"
+        class="form-control" name="name" #name="ngModel" required>
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">姓名是必填欄位！</div>
+      目前的資料狀態[姓名]：{{model.name}}
+    </div>
+    <div class="form-group">
+      <label for="alterEgo">裏人格</label>
+      <input type="text" class="form-control"
+        [(ngModel)]="model.alterEgo" name="alterEgo" id="alterEgo">
+        目前的資料狀態[裏人格]：{{model.alterEgo}}
+    </div>
+    <div class="form-group">
+      <label for="power">能力</label>
+      <select name="power" id="power" class="form-control" [(ngModel)]="model.power">
+        <option [value]="item" *ngFor="let item of powers">{{item}}</option>
+      </select>
+      目前的資料狀態[能力]：{{model.power}}
+    </div>
+    <button type="button" class="btn btn-primary" (click)="newHero();heroForm.reset()">新增英雄</button>
+    <button type="submit" class="btn btn-success">提交</button>
+  </form>
+</div>

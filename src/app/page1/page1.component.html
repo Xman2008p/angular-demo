@@ -1,3 +1,68 @@
 <p>
   page1 works!
 </p>
+
+
+
+
+<div class="form-group row">
+  <div class="col-sm-3"> <label for="passportNo" class="col-form-label title_input">護照號碼</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="text" placeholder="" name="passportNo"
+        [(ngModel)]="passportNo">
+    </div>
+  </div>
+  <div class="col-sm-3"> <label for="permitNo" class="col-form-label title_input">許可證號</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="text" placeholder="" name="permitNo"
+        [(ngModel)]="permitNo">
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <label for="sourceId" class="col-form-label title_input">註冊來源</label>
+    <div class="col-sm-9">
+      <select name="sourceId" [(ngModel)]="sourceId" id="sourceId" class="form-control">
+        <option value="">全部</option>
+        <option value="1">1:三代閘門</option>
+        <option value="2">2:一代註冊</option>
+        <option value="3">3:三代自助註冊台</option>
+        <option value="4">4:三代人工註冊台</option>
+        <option value="5">5:戶政eID</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <label for="inputEmail1" class="col-form-label title_input">註冊類別</label>
+    <div class="col-sm-9">
+      <select name="applyType" [(ngModel)]="applyType" id="applyType" class="form-control">
+        <option value="">全部</option>
+        <option value="1">1:國人</option>
+        <option value="2">2:機組員</option>
+        <option value="3">3:廣義國人</option>
+        <option value="7">7:常客證</option>
+        <option value="8">8:GE</option>
+        <option value="9">9:互惠</option>
+        <option value="A">A:VIP</option>
+        <option value="B">B:停留無戶籍字</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="col-sm-3">
+  <label for="immigrateType" class="col-form-label title_input">入出別</label>
+  <div class="col-sm-9">
+    <select name="immigrateType" [(ngModel)]="immigrateType" id="immigrateType" class="form-control"
+      (change)="changePortOrImmigType()">
+      <option *ngFor="let p of ImmigTypeList" [value]="p.settingValue">
+        {{ p.settingValue }}{{ p.settingName }}
+      </option>
+    </select>
+  </div>
+</div>
